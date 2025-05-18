@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto | DKLJ Bufete de Contadores</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="shortcut icon" href="img/dklj-hero.ico" type="image/x-icon">
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+nav {
+  background-color: #111;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.logo {
+  color: white;           /* color blanco */
+  text-decoration: none;  /* sin subrayado */
+  font-weight: 700;       /* más grueso */
+  font-size: 1.5rem;      /* tamaño más grande */
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00bcd4;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #00bcd4;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links .active {
+  color: #ffffff;
+}
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 40px;
+  flex: 1 1 400px;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.contact-form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #00bcd4;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #ccc;
+}
+
+.contact-form button {
+  width: 100%;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0097a7;
+}
+
+.footer {
+  background-color: #111;
+  color: #bbb;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+}
+
+.footer__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer__info h3 {
+  color: #00bcd4;
+  margin-bottom: 10px;
+}
+
+.footer__links,
+.footer__social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__links a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__links a:hover {
+  color: #00bcd4;
+}
+
+.footer__social {
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+}
+
+.footer__icons {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  filter: brightness(0.7);
+  transition: filter 0.3s ease;
+}
+
+.footer__icons:hover {
+  filter: brightness(1);
+}
+
+.footer__img {
+  width: 100%;
+  height: auto;
+}
+
+.footer__copy p {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer__social {
+    justify-content: center;
+  }
+}
+
+
+/* Animación para el formulario */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-form {
+  animation: fadeInUp 0.8s ease forwards;
+  /* El resto de estilos que ya tienes */
+}
+
+
+/* Media Queries y animaciones para menú hamburguesa */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #111;
+    padding: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    z-index: 999;
+    display: flex; /* siempre flex para controlar visibilidad con max-height y opacity */
+  }
+
+  .nav-links.show {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  .nav-links a {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .nav-links.show a {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Animación escalonada de enlaces */
+  .nav-links.show a:nth-child(1) { transition-delay: 0.1s; }
+  .nav-links.show a:nth-child(2) { transition-delay: 0.15s; }
+  .nav-links.show a:nth-child(3) { transition-delay: 0.2s; }
+  .nav-links.show a:nth-child(4) { transition-delay: 0.25s; }
+  .nav-links.show a:nth-child(5) { transition-delay: 0.3s; }
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00bcd4;
+    transition: transform 0.4s ease;
+  }
+
+  /* Rota el icono cuando está activo (fa-times) */
+  .menu-toggle i.fa-times {
+    transform: rotate(180deg);
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <nav class="nav container">
+    <a href="index.html" class="logo">DKLJ</a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="blog.html">Blog</a>
+      <a href="portafolio.html">Portafolio</a>
+      <a href="contacto.html" class="active">Contacto</a>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()" aria-label="Menú de navegación">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <section class="contact-section">
+    <form 
+      action="https://formspree.io/f/mrbqdzaj" 
+      method="POST" 
+      class="contact-form"
+    >
+      <h3>Envíanos un mensaje</h3>
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <input type="tel" name="telefono" placeholder="Teléfono (opcional)">
+      <textarea name="mensaje" placeholder="Escribe tu mensaje..." rows="5" required></textarea>
+
+      <!-- Honeypot -->
+      <input type="text" name="_gotcha" style="display:none">
+
+      <!-- Redirección -->
+      <input type="hidden" name="_next" value="gracias.html">
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer__container">
+    <!-- Información -->
+    <div class="footer__info">
+      <h3>DLKJ Bufete Contadores</h3>
+      <p>Soluciones contables profesionales adaptadas a las necesidades de tu empresa.</p>
+    </div>
+
+    <!-- Enlaces -->
+    <div class="footer__links">
+      <a href="politica.html">Política de privacidad</a>
+      <a href="terminos.html">Términos y condiciones</a>
+      <a href="contacto.html">Contáctanos</a>
+    </div>
+
+    <!-- Redes sociales -->
+    <div class="footer__social">
+      <a href="#" target="_blank" class="footer__icons">
+        <img src="img/facebook.svg" class="footer__img" alt="Facebook DKLJ" />
+      </a>
+      <a href="#" target="_blank" class="footer__icons">
+        <img src="img/twitter.svg" class="footer__img" alt="Twitter DKLJ" />
+      </a>
+      <a href="#" target="_blank" class="footer__icons">
+        <img src="img/youtube.svg" class="footer__img" alt="YouTube DKLJ" />
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer__copy" style="grid-column: 1 / -1; text-align: center;">
+      <p>&copy; 2025 DKLJ Bufete  Contadores - Todos los derechos reservados</p>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+   function toggleMenu() {
+  const navLinks = document.getElementById("nav-links");
+  navLinks.classList.toggle("show");
+
+  const menuToggle = document.querySelector(".menu-toggle i");
+  menuToggle.classList.toggle("fa-bars");
+  menuToggle.classList.toggle("fa-times");
+}
+
+  </script>
+</body>
+</html>
