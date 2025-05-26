@@ -26,8 +26,6 @@ body {
   color: var(--gray-dark);
   line-height: 1.65;
   font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
 }
 
@@ -52,6 +50,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo {
@@ -67,6 +66,7 @@ body {
   transform: scale(1.05);
 }
 
+/* NAV LINKS DESKTOP */
 .nav__link {
   list-style: none;
   display: flex;
@@ -167,19 +167,18 @@ body {
   line-height: 1.8;
 }
 
+/* EQUIPO */
 .equipo {
   text-align: center;
   padding: 60px 0;
   animation: fadeInEquipo 1s ease-out both;
 }
-
 .equipo__intro {
   margin-bottom: 30px;
   line-height: 1.6;
   font-size: 1.1rem;
   color: #444;
 }
-
 .equipo__img-container {
   max-width: 900px;
   margin: 0 auto;
@@ -187,15 +186,12 @@ body {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
-
 .equipo__img {
   width: 100%;
   height: auto;
   display: block;
   transition: transform 0.5s ease;
 }
-
-/* Efecto al pasar el mouse sobre la imagen */
 .equipo__img-container:hover .equipo__img {
   transform: scale(1.03);
 }
@@ -212,7 +208,6 @@ body {
   }
 }
 
-
 /* MISIÓN Y VISIÓN */
 .mision-vision {
   margin-top: 6rem;
@@ -220,7 +215,6 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 3rem;
 }
-
 .mision, .vision {
   background: var(--white);
   border-radius: 14px;
@@ -230,12 +224,10 @@ body {
   cursor: default;
   position: relative;
 }
-
 .mision:hover, .vision:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 64, 128, 0.35);
 }
-
 .mision h2, .vision h2 {
   color: var(--primary-color);
   font-weight: 700;
@@ -243,7 +235,6 @@ body {
   font-size: 1.8rem;
   position: relative;
 }
-
 .mision h2::before,
 .vision h2::before {
   content: '✦';
@@ -253,9 +244,7 @@ body {
   top: 0;
   font-size: 2rem;
   font-weight: 700;
-  line-height: 1;
 }
-
 .mision p, .vision p {
   font-weight: 400;
   font-size: 1rem;
@@ -268,7 +257,6 @@ body {
 .valores {
   margin-top: 6rem;
 }
-
 .valores h2 {
   font-size: 2.6rem;
   font-weight: 700;
@@ -277,7 +265,6 @@ body {
   margin-bottom: 0.8rem;
   position: relative;
 }
-
 .valores h2::after {
   content: '';
   display: block;
@@ -288,7 +275,6 @@ body {
   margin: 0.8rem auto 2rem auto;
   box-shadow: 0 0 15px var(--secondary-color);
 }
-
 .valores__intro {
   font-weight: 300;
   font-size: 1.15rem;
@@ -299,33 +285,23 @@ body {
   font-style: italic;
   letter-spacing: 0.04em;
 }
-
-/* Grid valores */
 .valores__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 1.8rem;
 }
-
 .valor {
   background: linear-gradient(145deg, #e6f0ff, #ffffff);
   border-radius: 15px;
   padding: 2rem 1.8rem;
-  box-shadow:
-    4px 4px 8px #b0c9ff,
-    -4px -4px 8px #ffffff;
+  box-shadow: 4px 4px 8px #b0c9ff, -4px -4px 8px #ffffff;
   transition: all 0.3s ease;
   cursor: default;
-  position: relative;
 }
-
 .valor:hover {
-  box-shadow:
-    6px 6px 14px #a2b7ff,
-    -6px -6px 14px #ffffff;
+  box-shadow: 6px 6px 14px #a2b7ff, -6px -6px 14px #ffffff;
   transform: translateY(-8px);
 }
-
 .valor h3 {
   font-weight: 700;
   font-size: 1.4rem;
@@ -334,7 +310,6 @@ body {
   position: relative;
   padding-left: 1.4rem;
 }
-
 .valor h3::before {
   content: '✓';
   color: var(--secondary-color);
@@ -343,9 +318,7 @@ body {
   top: 0;
   font-size: 1.3rem;
   font-weight: 900;
-  line-height: 1;
 }
-
 .valor p {
   font-weight: 400;
   font-size: 1rem;
@@ -364,7 +337,6 @@ body {
   font-weight: 300;
   box-shadow: inset 0 1px 5px rgba(255, 255, 255, 0.1);
 }
-
 .footer a {
   color: var(--secondary-color);
   text-decoration: none;
@@ -376,18 +348,54 @@ body {
   text-decoration: underline;
 }
 
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .nav__link {
-    gap: 1rem;
+    display: none;
+    flex-direction: column;
+    background: var(--primary-color);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
+
+  .nav__link.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
   .hero__nosotros h1 {
     font-size: 2.8rem;
   }
+
   .mision-vision {
     grid-template-columns: 1fr;
   }
+
   .valores__grid {
     grid-template-columns: 1fr;
   }
 }
+
