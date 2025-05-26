@@ -67,36 +67,13 @@ body {
 }
 
 /* NAV LINKS DESKTOP */
-
-.nav_toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-.nav_toggle .bar {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 4px 0;
-}
 .nav__link {
   list-style: none;
   display: flex;
   gap: 2rem;
 }
 
-.nav__links {
-  color: var(--white);
-  font-weight: 500;
-  text-decoration: none;
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  position: relative;
-  font-size: 1rem;
-}
+
 .nav__links::after {
   content: '';
   position: absolute;
@@ -115,6 +92,52 @@ body {
   color: var(--secondary-color);
   background-color: var(--white);
 }
+
+/* Estilos para eliminar el "punto" del botón */
+.nav__toggle {
+  display: none; /* se mostrará solo en pantallas pequeñas */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Cada barra del ícono hamburguesa */
+.nav__toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  display: block;
+  border-radius: 2px;
+}
+
+/* Mostrar botón en dispositivos móviles */
+@media screen and (max-width: 768px) {
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__link {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
+    position: absolute;
+    top: 60px; /* ajusta según altura del header */
+    right: 0;
+    padding: 1rem;
+    border: 1px solid #ccc;
+  }
+
+  .nav__link.active {
+    display: flex;
+  }
 
 /* HERO NOSOTROS */
 .hero__nosotros {
