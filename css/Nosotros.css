@@ -81,7 +81,16 @@ body {
   transition: color 0.3s ease;
 }
 
-.nav__links::after {
+.nav__link a:hover {
+  color: var(--secondary-color);
+}
+
+/* El contenedor de links con hover efecto */
+.nav__link-container {
+  position: relative;
+}
+
+.nav__link-container::after {
   content: '';
   position: absolute;
   width: 0%;
@@ -91,17 +100,10 @@ body {
   background: var(--secondary-color);
   transition: width 0.3s ease;
 }
-.nav__links:hover::after,
-.nav__links.active::after {
-  width: 100%;
-}
-.nav__links:hover {
-  color: var(--secondary-color);
-  background-color: var(--white);
-}
 
-.nav__link a:hover {
-  color: #66b2ff; /* un azul claro para efecto hover */
+.nav__link-container:hover::after,
+.nav__link-container.active::after {
+  width: 100%;
 }
 
 /* Estilos para eliminar el "punto" del botón */
@@ -135,15 +137,24 @@ body {
   }
 
   .nav__link {
-  background-color: #004080; /* azul oscuro corporativo */
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    z-index: 998;
+  }
 
+  /* Cuando el menú está activo */
   .nav__link.active {
     display: flex;
   }
+}
 
 /* HERO NOSOTROS */
 .hero__nosotros {
@@ -394,40 +405,37 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
 
-  .nav_toggle {
+  /* Mostrar botón hamburguesa */
+  .nav__toggle {
     display: flex;
   }
+
+  /* Menú oculto por defecto */
   .nav__link {
     display: none;
     flex-direction: column;
-    background: var(--primary-color);
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 70px;
     right: 0;
     width: 200px;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 998;
   }
 
-   .nav_link.active {
+  /* Menú visible cuando está activo */
+  .nav__link.active {
     display: flex;
   }
 
-   .nav_links {
-    padding: 1rem;
-    color: white;
-    text-align: center;
-  }
-
-  .nav__link.show {
-    display: flex;
-  }
-
+  /* Ajuste de fuente hero */
   .hero__nosotros h1 {
     font-size: 2.8rem;
   }
 
+  /* Secciones en una columna para móvil */
   .mision-vision {
     grid-template-columns: 1fr;
   }
@@ -436,4 +444,5 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
 
