@@ -73,6 +73,13 @@ body {
   gap: 2rem;
 }
 
+.nav__link a {
+  color: #fff; /* blanco */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
 
 .nav__links::after {
   content: '';
@@ -91,6 +98,10 @@ body {
 .nav__links:hover {
   color: var(--secondary-color);
   background-color: var(--white);
+}
+
+.nav__link a:hover {
+  color: #66b2ff; /* un azul claro para efecto hover */
 }
 
 /* Estilos para eliminar el "punto" del botón */
@@ -124,16 +135,11 @@ body {
   }
 
   .nav__link {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #fff;
-    position: absolute;
-    top: 60px; /* ajusta según altura del header */
-    right: 0;
-    padding: 1rem;
-    border: 1px solid #ccc;
-  }
+  background-color: #004080; /* azul oscuro corporativo */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
   .nav__link.active {
     display: flex;
